@@ -9,8 +9,14 @@
   padding-right: calc(50% - 600px);
 }
 
-body {
+@font-face {
     font-family: "StratosSkyeng";
+    src:url(stratosskyeng-regular.otf)
+  }
+
+body {
+    margin: 0;
+    padding: 0;
   }
 
 .game-cart{
