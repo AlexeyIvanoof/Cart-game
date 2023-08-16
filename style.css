@@ -4,20 +4,15 @@
   padding: 0;
 }
 
-.center {
-  padding-left: calc(50% - 600px);
-  padding-right: calc(50% - 600px);
-}
-
 @font-face {
     font-family: "StratosSkyeng";
     src:url(stratosskyeng-regular.otf)
   }
 
-body {
-    margin: 0;
-    padding: 0;
-  }
+.center {
+  padding-left: calc(50% - 600px);
+  padding-right: calc(50% - 600px);
+}
 
 .game-cart{
     display: flex;
@@ -61,7 +56,8 @@ background: var(--blue-120, #004980);
 }
 
 .game-difficult-numb{
-    display: flex;
+display: flex;
+align-items: center;
 width: 97px;
 height: 98px;
 flex-direction: column;
@@ -78,6 +74,7 @@ width: 98px;
 height: 98px;
 flex-shrink: 0;
 border-radius: 12px;
+border: none;
 background: #FFF;
 }
 
