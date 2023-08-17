@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Игровое поле</title>
-    <link href="statosskyeng-v1.001/Desktop fonts/" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-</head>
-<body class="center">
-    <div id="cart-area" class="game-cart-area">
+export const renderPage = () => {
+    const pageElement = document.getElementById("cart-area");
+    const cartArea = 
+    ` <div id="cart-area" class="game-cart-area">
     <div class="game-header">
 <div class="game-timer">
     <div class="time-set">
@@ -57,7 +50,8 @@
         <img class="cart" src="img/рубашка.jpg" alt="карты">
         <img class="cart" src="img/рубашка.jpg" alt="карты">
     </div>
-</div>
-<script type="module" src="game-area.js"></script>
-</body>
-</html>
+</div>` 
+
+pageElement.innerHTML = cartArea.Html;
+
+}
