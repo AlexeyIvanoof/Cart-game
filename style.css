@@ -167,3 +167,7 @@ line-height: 32px;
     width: 95px;
     height: 133px;
 }
+
+.point{
+    display: none;
+}

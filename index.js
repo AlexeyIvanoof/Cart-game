@@ -1,19 +1,21 @@
-import { renderPage } from "./game-area";
+//import { renderPage } from "./game-area";
 
 export function difficultPage() {
     const  pageElement = document.getElementById("app")
     const pageDifficultHtml = 
-    `<div  class="game-cart">
+    ` <form class="game-cart" name="test"  action="game-area.html">
     <div class="game-menu center" >
-<h2 class="game-set">Выбери<br>сложность</h2>
-<div class="game-difficult">
-    <button class="game-difficult-numb" id="level-easy">1</button>
-    <button class="game-difficult-numb" id="level-medium">2</button>
-    <button class="game-difficult-numb" id="level-hard">3</button>
-</div>
-<button id="start-game" class="game-button">Старт</button>
-    </div>
-</div>`
+       <h2 class="game-set">Выбери<br>сложность</h2>
+       <div class="game-difficult">
+          <label class="game-difficult-numb"><input class="point" id="level-easy"   type="radio" name="level" value="1"><span>1</span></label>
+          <label class="game-difficult-numb"><input class="point" id="level-medium" type="radio" name="level" value="2"><span>2</span></label>
+          <label class="game-difficult-numb"><input class="point" id="level-hard"   type="radio" name="level" value="3"><span>3</span></label>
+        </div>
+         <p>
+            <input type="submit" id="start-game" class="game-button" value="Старт">
+         </p>
+      </div>   
+   </form>`
 pageElement.innerHTML = pageDifficultHtml;
 
 
@@ -35,8 +37,8 @@ hardGame.addEventListener("click", () => {
 })
 
 startGame.addEventListener("click", () => {
-    alert("Старт!")
-    return  renderPage();
+    alert("Удачи!")
+    //return  renderPage();
 })
    
 };
