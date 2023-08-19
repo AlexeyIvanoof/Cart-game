@@ -1,6 +1,6 @@
 export const renderPage = () => {
     const pageElement = document.getElementById("cart-area");
-    const cartArea = 
+    const  cartAreaHtml = 
     ` <div id="cart-area" class="game-cart-area">
     <div class="game-header">
 <div class="game-timer">
@@ -52,6 +52,6 @@ export const renderPage = () => {
     </div>
 </div>` 
 
-pageElement.innerHTML = cartArea.Html;
+pageElement.innerHTML = cartAreaHtml;
 
 }

@@ -2,7 +2,7 @@ import { renderPage } from "./game-area";
 
 export function difficultPage() {
     const  pageElement = document.getElementById("app")
-    const pageDifficult = 
+    const pageDifficultHtml = 
     `<div  class="game-cart">
     <div class="game-menu center" >
 <h2 class="game-set">Выбери<br>сложность</h2>
@@ -14,7 +14,7 @@ export function difficultPage() {
 <button id="start-game" class="game-button">Старт</button>
     </div>
 </div>`
-pageElement.innerHTML = pageDifficult.Html;
+pageElement.innerHTML = pageDifficultHtml;
 
 
 const easyGame = document.getElementById("level-easy");

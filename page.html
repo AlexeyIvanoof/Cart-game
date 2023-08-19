@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="style.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Меню игры</title>
+</head>
+<body class="center">
+    <form class="game-cart"  action="game-area.html">
+        <div class="game-menu center" >
+           <h2 class="game-set">Выбери<br>сложность</h2>
+           <div class="game-difficult">
+            <label class="game-difficult-numb"><input  id="level-easy" type="radio" name="level" value="1"><span>1</span></label>
+              <label class="game-difficult-numb"><input  id="level-medium" type="radio" name="level" value="2"><span>2</span></label>
+              <label class="game-difficult-numb"><input  id="level-hard" type="radio" name="level" value="3"><span>3</span></label>
+            </div>
+             <p>
+                <input type="submit" id="start-game" class="game-button" value="Старт">
+             </p>
+          </div>   
+       </form>
+<div id="app"></div>
+</body>
+<script type="module" src="./index.js"></script>
+</html>
+
