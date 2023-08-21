@@ -1,5 +1,5 @@
 export const renderPage = () => {
-    const pageElement = document.getElementById("cart-area");
+    const pageElement = document.getElementById("app");
     const  cartAreaHtml = 
     ` <div id="cart-area" class="game-cart-area">
     <div class="game-header">

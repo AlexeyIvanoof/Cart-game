@@ -78,6 +78,16 @@ border: none;
 background: #FFF;
 }
 
+.game-difficult-numb:hover{
+    transform: scale(1.1);
+    box-shadow: 0 0 10px #090133; 
+}
+
+.game-difficult-numb:active {
+    color: #03487d;
+  background-color: rgb(241, 211, 205);
+}
+
 .game-button{
 display: flex;
 width: 246px;
@@ -102,6 +112,15 @@ border: none;
 background: var(--salad-60, #7AC100);
 margin-top: 50px;
 margin-bottom: 50px;
+}
+
+.game-button:hover{
+transform: scale(1.5);
+    box-shadow: 0 0 10px #090133; 
+}
+
+.game-button:active{
+    background-color: #537e08;
 }
 
 .game-cart-area{
