@@ -1,7 +1,6 @@
 export const renderPage = () => {
-    const pageElement = document.getElementById("app");
-    const  cartAreaHtml = 
-    ` <div id="cart-area" class="game-cart-area">
+  const pageElement = document.getElementById("app");
+  const cartAreaHtml = ` <div id="cart-area" class="game-cart-area">
     <div class="game-header">
 <div class="game-timer">
     <div class="time-set">
@@ -13,45 +12,44 @@ export const renderPage = () => {
 <div class="game-button">Начать заново</div>
     </div>
     <div class="game-area">
-        <img class="cart" src="img/рубашка.jpg" alt="карты">
-        <img class="cart" src="img/рубашка.jpg" alt="карты">
-        <img class="cart" src="img/рубашка.jpg" alt="карты">
-        <img class="cart" src="img/рубашка.jpg" alt="карты">
-        <img class="cart" src="img/рубашка.jpg" alt="карты">
-        <img class="cart" src="img/рубашка.jpg" alt="карты">
-        <img class="cart" src="img/рубашка.jpg" alt="карты">
-        <img class="cart" src="img/рубашка.jpg" alt="карты">
-        <img class="cart" src="img/рубашка.jpg" alt="карты">
-        <img class="cart" src="img/рубашка.jpg" alt="карты">
-        <img class="cart" src="img/рубашка.jpg" alt="карты">
-        <img class="cart" src="img/рубашка.jpg" alt="карты">
-        <img class="cart" src="img/рубашка.jpg" alt="карты">
-        <img class="cart" src="img/рубашка.jpg" alt="карты">
-        <img class="cart" src="img/рубашка.jpg" alt="карты">
-        <img class="cart" src="img/рубашка.jpg" alt="карты">
-        <img class="cart" src="img/рубашка.jpg" alt="карты">
-        <img class="cart" src="img/рубашка.jpg" alt="карты">
-        <img class="cart" src="img/рубашка.jpg" alt="карты">
-        <img class="cart" src="img/рубашка.jpg" alt="карты">
-        <img class="cart" src="img/рубашка.jpg" alt="карты">
-        <img class="cart" src="img/рубашка.jpg" alt="карты">
-        <img class="cart" src="img/рубашка.jpg" alt="карты">
-        <img class="cart" src="img/рубашка.jpg" alt="карты">
-        <img class="cart" src="img/рубашка.jpg" alt="карты">
-        <img class="cart" src="img/рубашка.jpg" alt="карты">
-        <img class="cart" src="img/рубашка.jpg" alt="карты">
-        <img class="cart" src="img/рубашка.jpg" alt="карты">
-        <img class="cart" src="img/рубашка.jpg" alt="карты">
-        <img class="cart" src="img/рубашка.jpg" alt="карты">
-        <img class="cart" src="img/рубашка.jpg" alt="карты">
-        <img class="cart" src="img/рубашка.jpg" alt="карты">
-        <img class="cart" src="img/рубашка.jpg" alt="карты">
-        <img class="cart" src="img/рубашка.jpg" alt="карты">
-        <img class="cart" src="img/рубашка.jpg" alt="карты">
-        <img class="cart" src="img/рубашка.jpg" alt="карты">
+        <img class="card" src="img/рубашка.jpg" alt="карты">
+        <img class="card" src="img/рубашка.jpg" alt="карты">
+        <img class="card" src="img/рубашка.jpg" alt="карты">
+        <img class="card" src="img/рубашка.jpg" alt="карты">
+        <img class="card" src="img/рубашка.jpg" alt="карты">
+        <img class="card" src="img/рубашка.jpg" alt="карты">
+        <img class="card" src="img/рубашка.jpg" alt="карты">
+        <img class="card" src="img/рубашка.jpg" alt="карты">
+        <img class="card" src="img/рубашка.jpg" alt="карты">
+        <img class="card" src="img/рубашка.jpg" alt="карты">
+        <img class="card" src="img/рубашка.jpg" alt="карты">
+        <img class="card" src="img/рубашка.jpg" alt="карты">
+        <img class="card" src="img/рубашка.jpg" alt="карты">
+        <img class="card" src="img/рубашка.jpg" alt="карты">
+        <img class="card" src="img/рубашка.jpg" alt="карты">
+        <img class="card" src="img/рубашка.jpg" alt="карты">
+        <img class="card" src="img/рубашка.jpg" alt="карты">
+        <img class="card" src="img/рубашка.jpg" alt="карты">
+        <img class="card" src="img/рубашка.jpg" alt="карты">
+        <img class="card" src="img/рубашка.jpg" alt="карты">
+        <img class="card" src="img/рубашка.jpg" alt="карты">
+        <img class="card" src="img/рубашка.jpg" alt="карты">
+        <img class="card" src="img/рубашка.jpg" alt="карты">
+        <img class="card" src="img/рубашка.jpg" alt="карты">
+        <img class="card" src="img/рубашка.jpg" alt="карты">
+        <img class="card" src="img/рубашка.jpg" alt="карты">
+        <img class="card" src="img/рубашка.jpg" alt="карты">
+        <img class="card" src="img/рубашка.jpg" alt="карты">
+        <img class="card" src="img/рубашка.jpg" alt="карты">
+        <img class="card" src="img/рубашка.jpg" alt="карты">
+        <img class="card" src="img/рубашка.jpg" alt="карты">
+        <img class="card" src="img/рубашка.jpg" alt="карты">
+        <img class="card" src="img/рубашка.jpg" alt="карты">
+        <img class="card" src="img/рубашка.jpg" alt="карты">
+        <img class="card" src="img/рубашка.jpg" alt="карты">
+        <img class="card" src="img/рубашка.jpg" alt="карты">
     </div>
-</div>` 
+</div>`;
 
-pageElement.innerHTML = cartAreaHtml;
-
-}
+  pageElement.innerHTML = cartAreaHtml;
+};
