@@ -6,7 +6,7 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const mode = process.env.NODE_ENV === "production" ? "production" : "development";
 
 module.exports = {
-    entry: './Cart-game/index.js',
+  entry: "./src/index.js",
   mode,
   module: {
     rules: [
@@ -38,4 +38,3 @@ module.exports = {
   },
   plugins: [new MiniCssExtractPlugin(), new HtmlWebpackPlugin()],
 };
-
