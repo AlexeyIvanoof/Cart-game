@@ -15,7 +15,7 @@
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1"
   },
-  "name": "cart-game",
+  "name": "src",
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {
@@ -108,10 +108,10 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint:js": "eslint  './Cart-game/**/*.js'",
-    "format": "prettier --write ./Cart-game/",
-    "lint:css": "stylelint './Cart-game/**/*.css'",
-    "build": "NODE_ENV=production webpack",
+    "lint:js": "eslint  './src/**/*.js'",
+    "format": "prettier --write ./src/",
+    "lint:css": "stylelint './src/**/*.css'",
+    "build": " webpack",
     "start": "webpack-dev-server ––open"
   },
   "author": "",

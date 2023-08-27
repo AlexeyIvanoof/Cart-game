@@ -1,5 +1,3 @@
-
-
 // Легкий уровень игры
 export function renderEasyCard() {
   const cardElement = document.getElementById("area");
@@ -18,116 +16,113 @@ export function renderEasyCard() {
   <div class="game-area">
 
   <div class="card" data-framework="туз пики">
-     <img class="front-face" src="img/туз пики.jpg" alt="Card">
-     <img class="back-face"  src="img/рубашка.jpg" alt="Card">
-     <img class="demo-face" src="img/туз пики.jpg" alt="Card">
-  </div>
-
-  <div class="card"  data-framework="10 черви">
-     <img class="front-face" src="img/10 черви.jpg" alt="Card">
-     <img class="back-face"  src="img/рубашка.jpg" alt="Card">
-     <img class="demo-face" src="img/10 черви.jpg" alt="Card">
-  </div>
-
- <div class="card"  data-framework="дама бубны">
-    <img class="front-face" src="img/дама бубны.jpg" alt="Card">
-    <img class="back-face"  src="img/рубашка.jpg" alt="Card">
-    <img class="demo-face" src="img/дама бубны.jpg" alt="Card">
- </div>
-
- <div class="card"  data-framework="туз пики">
-    <img class="front-face" src="img/туз пики.jpg" alt="Card">
-    <img class="back-face"  src="img/рубашка.jpg" alt="Card">
-    <img class="demo-face" src="img/туз пики.jpg" alt="Card">
-  </div>
-
- <div class="card"  data-framework="дама бубны">
-     <img class="front-face" src="img/дама бубны.jpg" alt="Card">
-     <img class="back-face"  src="img/рубашка.jpg" alt="Card">
-     <img class="demo-face" src="img/дама бубны.jpg" alt="Card">
- </div>
-
- <div class="card"  data-framework="10 черви">
-    <img class="front-face" src="img/10 черви.jpg" alt="Card">
-    <img class="back-face"  src="img/рубашка.jpg" alt="Card">
-    <img class="demo-face" src="img/10 черви.jpg" alt="Card">
- </div>
+       <img class="front-face" src="./static/img/туз пики.jpg" alt="Card">
+       <img class="back-face"  src="./static/img/рубашка.jpg" alt="Card">
+       <img class="demo-face" src="./static/img/туз пики.jpg" alt="Card">
+    </div>
+  
+    <div class="card"  data-framework="10 черви">
+       <img class="front-face" src="./static/img/10 черви.jpg" alt="Card">
+       <img class="back-face"  src="./static/img/рубашка.jpg" alt="Card">
+       <img class="demo-face" src="./static/img/10 черви.jpg" alt="Card">
+    </div>
+  
+   <div class="card"  data-framework="дама бубны">
+      <img class="front-face" src="./static/img/дама бубны.jpg" alt="Card">
+      <img class="back-face"  src="./static/img/рубашка.jpg" alt="Card">
+      <img class="demo-face" src="./static/img/дама бубны.jpg" alt="Card">
+   </div>
+  
+   <div class="card"  data-framework="туз пики">
+      <img class="front-face" src="./static/img/туз пики.jpg" alt="Card">
+      <img class="back-face"  src="./static/img/рубашка.jpg" alt="Card">
+      <img class="demo-face" src="./static/img/туз пики.jpg" alt="Card">
+    </div>
+  
+   <div class="card"  data-framework="дама бубны">
+       <img class="front-face" src="./static/img/дама бубны.jpg" alt="Card">
+       <img class="back-face"  src="./static/img/рубашка.jpg" alt="Card">
+       <img class="demo-face" src="./static/img/дама бубны.jpg" alt="Card">
+   </div>
+  
+   <div class="card"  data-framework="10 черви">
+      <img class="front-face" src="./static/img/10 черви.jpg" alt="Card">
+      <img class="back-face"  src="./static/img/рубашка.jpg" alt="Card">
+      <img class="demo-face" src="./static/img/10 черви.jpg" alt="Card">
+   </div>
   </div>
   `;
   cardElement.innerHTML = cardHtml;
 
-  
-  setTimeout(function(){
-  let elems = document.querySelectorAll(".demo-face");
-for(let i=0; i<elems.length; i++)elems[i].style.display='none';
-    }, 5000 );
+  setTimeout(function () {
+    let elems = document.querySelectorAll(".demo-face");
+    for (let i = 0; i < elems.length; i++) elems[i].style.display = "none";
+  }, 5000);
 
-  const cards = document.querySelectorAll('.card');
+  const cards = document.querySelectorAll(".card");
 
-let hasFlippedCard = false;
-let lockBoard = false;
-let firstCard, secondCard;
+  let hasFlippedCard = false;
+  let lockBoard = false;
+  let firstCard, secondCard;
 
-function flipCard() {
-if (lockBoard) return;
-if (this === firstCard) return;
+  function flipCard() {
+    if (lockBoard) return;
+    if (this === firstCard) return;
 
-this.classList.add('flip');
+    this.classList.add("flip");
 
-if (!hasFlippedCard) {
-  hasFlippedCard = true;
-  firstCard = this;
-  return;
-}
+    if (!hasFlippedCard) {
+      hasFlippedCard = true;
+      firstCard = this;
+      return;
+    }
 
-secondCard = this;
-lockBoard = true;
+    secondCard = this;
+    lockBoard = true;
 
-checkForMatch();
-}
-
-function checkForMatch() {
-  if (firstCard.dataset.framework === secondCard.dataset.framework) {
-    disableCards();
-    console.log('Карты совпали!')
-    return;
-    
+    checkForMatch();
   }
 
-  unflipCards();
+  function checkForMatch() {
+    if (firstCard.dataset.framework === secondCard.dataset.framework) {
+      disableCards();
+      console.log("Карты совпали!");
+      return;
+    }
+
+    unflipCards();
+  }
+
+  function disableCards() {
+    firstCard.removeEventListener("click", flipCard);
+    secondCard.removeEventListener("click", flipCard);
+
+    resetBoard();
+  }
+
+  function unflipCards() {
+    setTimeout(() => {
+      firstCard.classList.remove("flip");
+      secondCard.classList.remove("flip");
+      console.log("Нет совпадения!");
+      resetBoard();
+    }, 1500);
+  }
+
+  function resetBoard() {
+    [hasFlippedCard, lockBoard] = [false, false];
+    [firstCard, secondCard] = [null, null];
+  }
+
+  (function shuffle() {
+    cards.forEach((card) => {
+      let ramdomPos = Math.floor(Math.random() * 6);
+      card.style.order = ramdomPos;
+    });
+  })();
+
+  cards.forEach((card) => card.addEventListener("click", flipCard));
 }
-
-function disableCards() {
-firstCard.removeEventListener('click', flipCard);
-secondCard.removeEventListener('click', flipCard);
-
-resetBoard();
-}
-
-function unflipCards() {
-setTimeout(() => {
-  firstCard.classList.remove('flip');
-  secondCard.classList.remove('flip');
-  console.log('Нет совпадения!')
-  resetBoard();
-}, 1500);
-}
-
-function resetBoard() {
-[hasFlippedCard, lockBoard] = [false, false];
-[firstCard, secondCard] = [null, null];
-}
-
-(function shuffle() {
-cards.forEach(card => {
-  let ramdomPos = Math.floor(Math.random() * 6);
-  card.style.order = ramdomPos;
-});
-})();
-
-cards.forEach(card => card.addEventListener('click', flipCard));
-}
-
 
 //Средний уровень игры
 export function renderMediumCard() {
@@ -146,151 +141,150 @@ export function renderMediumCard() {
   </div>
   <div class="game-area">
 
-  <div class="card" data-framework="туз пики">
-     <img class="front-face" src="img/туз пики.jpg" alt="Card">
-     <img class="back-face"  src="img/рубашка.jpg" alt="Card">
-     <img class="demo-face" src="img/туз пики.jpg" alt="Card">
-  </div>
+<div class="card" data-framework="туз пики">
+  <img class="front-face" src="./static/img/туз пики.jpg" alt="Card">
+  <img class="back-face"  src="./static/img/рубашка.jpg" alt="Card">
+  <img class="demo-face" src="./static/img/туз пики.jpg" alt="Card">
+</div>
 
-  <div class="card"  data-framework="10 черви">
-     <img class="front-face" src="img/10 черви.jpg" alt="Card">
-     <img class="back-face"  src="img/рубашка.jpg" alt="Card">
-     <img class="demo-face" src="img/10 черви.jpg" alt="Card">
-  </div>
+<div class="card"  data-framework="10 черви">
+  <img class="front-face" src="./static/img/10 черви.jpg" alt="Card">
+  <img class="back-face"  src="./static/img/рубашка.jpg" alt="Card">
+  <img class="demo-face" src="./static/img/10 черви.jpg" alt="Card">
+</div>
 
- <div class="card"  data-framework="дама бубны">
-    <img class="front-face" src="img/дама бубны.jpg" alt="Card">
-    <img class="back-face"  src="img/рубашка.jpg" alt="Card">
-    <img class="demo-face" src="img/дама бубны.jpg" alt="Card">
- </div>
+<div class="card"  data-framework="дама бубны">
+ <img class="front-face" src="./static/img/дама бубны.jpg" alt="Card">
+ <img class="back-face"  src="./static/img/рубашка.jpg" alt="Card">
+ <img class="demo-face" src="./static/img/дама бубны.jpg" alt="Card">
+</div>
 
- <div class="card"  data-framework="туз пики">
-    <img class="front-face" src="img/туз пики.jpg" alt="Card">
-    <img class="back-face"  src="img/рубашка.jpg" alt="Card">
-    <img class="demo-face" src="img/туз пики.jpg" alt="Card">
-  </div>
+<div class="card"  data-framework="туз пики">
+ <img class="front-face" src="./static/img/туз пики.jpg" alt="Card">
+ <img class="back-face"  src="./static/img/рубашка.jpg" alt="Card">
+ <img class="demo-face" src="./static/img/туз пики.jpg" alt="Card">
+</div>
 
- <div class="card"  data-framework="дама бубны">
-     <img class="front-face" src="img/дама бубны.jpg" alt="Card">
-     <img class="back-face"  src="img/рубашка.jpg" alt="Card">
-     <img class="demo-face" src="img/дама бубны.jpg" alt="Card">
- </div>
+<div class="card"  data-framework="дама бубны">
+  <img class="front-face" src="./static/img/дама бубны.jpg" alt="Card">
+  <img class="back-face"  src="./static/img/рубашка.jpg" alt="Card">
+  <img class="demo-face" src="./static/img/дама бубны.jpg" alt="Card">
+</div>
 
- <div class="card"  data-framework="10 черви">
-    <img class="front-face" src="img/10 черви.jpg" alt="Card">
-    <img class="back-face"  src="img/рубашка.jpg" alt="Card">
-    <img class="demo-face" src="img/10 черви.jpg" alt="Card">
- </div>
+<div class="card"  data-framework="10 черви">
+ <img class="front-face" src="./static/img/10 черви.jpg" alt="Card">
+ <img class="back-face"  src="./static/img/рубашка.jpg" alt="Card">
+ <img class="demo-face" src="./static/img/10 черви.jpg" alt="Card">
+</div>
 
- <div class="card" data-framework="дама черви">
-     <img class="front-face" src="img/дама черви.jpg" alt="Card">
-     <img class="back-face"  src="img/рубашка.jpg" alt="Card">
-     <img class="demo-face" src="img/дама черви.jpg" alt="Card">
-  </div>
+<div class="card" data-framework="дама черви">
+  <img class="front-face" src="./static/img/дама черви.jpg" alt="Card">
+  <img class="back-face"  src="./static/img/рубашка.jpg" alt="Card">
+  <img class="demo-face" src="./static/img/дама черви.jpg" alt="Card">
+</div>
 
-  <div class="card"  data-framework="дама черви">
-     <img class="front-face" src="img/дама черви.jpg" alt="Card">
-     <img class="back-face"  src="img/рубашка.jpg" alt="Card">
-     <img class="demo-face" src="img/дама черви.jpg" alt="Card">
-  </div>
+<div class="card"  data-framework="дама черви">
+  <img class="front-face" src="./static/img/дама черви.jpg" alt="Card">
+  <img class="back-face"  src="./static/img/рубашка.jpg" alt="Card">
+  <img class="demo-face" src="./static/img/дама черви.jpg" alt="Card">
+</div>
 
- <div class="card"  data-framework="король крести">
-    <img class="front-face" src="img/король крести.jpg" alt="Card">
-    <img class="back-face"  src="img/рубашка.jpg" alt="Card">
-    <img class="demo-face"src="img/король крести.jpg" alt="Card">
- </div>
+<div class="card"  data-framework="король крести">
+ <img class="front-face" src="./static/img/король крести.jpg" alt="Card">
+ <img class="back-face"  src="./static/img/рубашка.jpg" alt="Card">
+ <img class="demo-face"src="./static/img/король крести.jpg" alt="Card">
+</div>
 
- <div class="card"  data-framework="король крести">
-    <img class="front-face" src="img/король крести.jpg" alt="Card">
-    <img class="back-face"  src="img/рубашка.jpg" alt="Card">
-    <img class="demo-face" src="img/король крести.jpg" alt="Card">
-  </div>
+<div class="card"  data-framework="король крести">
+ <img class="front-face" src="./static/img/король крести.jpg" alt="Card">
+ <img class="back-face"  src="./static/img/рубашка.jpg" alt="Card">
+ <img class="demo-face" src="./static/img/король крести.jpg" alt="Card">
+</div>
 
- <div class="card"  data-framework="7 крести">
-     <img class="front-face" src="img/7 крести.jpg" alt="Card">
-     <img class="back-face"  src="img/рубашка.jpg" alt="Card">
-     <img class="demo-face" src="img/7 крести.jpg" alt="Card">
- </div>
+<div class="card"  data-framework="7 крести">
+  <img class="front-face" src="./static/img/7 крести.jpg" alt="Card">
+  <img class="back-face"  src="./static/img/рубашка.jpg" alt="Card">
+  <img class="demo-face" src="./static/img/7 крести.jpg" alt="Card">
+</div>
 
- <div class="card"  data-framework="7 крести">
-    <img class="front-face" src="img/7 крести.jpg" alt="Card">
-    <img class="back-face"  src="img/рубашка.jpg" alt="Card">
-    <img class="demo-face" src="img/7 крести.jpg" alt="Card">
- </div>
+<div class="card"  data-framework="7 крести">
+ <img class="front-face" src="./static/img/7 крести.jpg" alt="Card">
+ <img class="back-face"  src="./static/img/рубашка.jpg" alt="Card">
+ <img class="demo-face" src="./static/img/7 крести.jpg" alt="Card">
+</div>
+
   </div>
   `;
   cardElement.innerHTML = cardHtml;
 
-  
-  setTimeout(function(){
-  let elems = document.querySelectorAll(".demo-face");
-for(let i=0; i<elems.length; i++)elems[i].style.display='none';
-    }, 5000 );
+  setTimeout(function () {
+    let elems = document.querySelectorAll(".demo-face");
+    for (let i = 0; i < elems.length; i++) elems[i].style.display = "none";
+  }, 5000);
 
-  const cards = document.querySelectorAll('.card');
+  const cards = document.querySelectorAll(".card");
 
-let hasFlippedCard = false;
-let lockBoard = false;
-let firstCard, secondCard;
+  let hasFlippedCard = false;
+  let lockBoard = false;
+  let firstCard, secondCard;
 
-function flipCard() {
-if (lockBoard) return;
-if (this === firstCard) return;
+  function flipCard() {
+    if (lockBoard) return;
+    if (this === firstCard) return;
 
-this.classList.add('flip');
+    this.classList.add("flip");
 
-if (!hasFlippedCard) {
-  hasFlippedCard = true;
-  firstCard = this;
-  return;
-}
+    if (!hasFlippedCard) {
+      hasFlippedCard = true;
+      firstCard = this;
+      return;
+    }
 
-secondCard = this;
-lockBoard = true;
+    secondCard = this;
+    lockBoard = true;
 
-checkForMatch();
-}
-
-function checkForMatch() {
-  if (firstCard.dataset.framework === secondCard.dataset.framework) {
-    disableCards();
-    console.log('Карты совпали!')
-    return;
-    
+    checkForMatch();
   }
 
-  unflipCards();
-}
+  function checkForMatch() {
+    if (firstCard.dataset.framework === secondCard.dataset.framework) {
+      disableCards();
+      console.log("Карты совпали!");
+      return;
+    }
 
-function disableCards() {
-firstCard.removeEventListener('click', flipCard);
-secondCard.removeEventListener('click', flipCard);
+    unflipCards();
+  }
 
-resetBoard();
-}
+  function disableCards() {
+    firstCard.removeEventListener("click", flipCard);
+    secondCard.removeEventListener("click", flipCard);
 
-function unflipCards() {
-setTimeout(() => {
-  firstCard.classList.remove('flip');
-  secondCard.classList.remove('flip');
-  console.log('Нет совпадения!')
-  resetBoard();
-}, 1500);
-}
+    resetBoard();
+  }
 
-function resetBoard() {
-[hasFlippedCard, lockBoard] = [false, false];
-[firstCard, secondCard] = [null, null];
-}
+  function unflipCards() {
+    setTimeout(() => {
+      firstCard.classList.remove("flip");
+      secondCard.classList.remove("flip");
+      console.log("Нет совпадения!");
+      resetBoard();
+    }, 1500);
+  }
 
-(function shuffle() {
-cards.forEach(card => {
-  let ramdomPos = Math.floor(Math.random() * 12);
-  card.style.order = ramdomPos;
-});
-})();
+  function resetBoard() {
+    [hasFlippedCard, lockBoard] = [false, false];
+    [firstCard, secondCard] = [null, null];
+  }
 
-cards.forEach(card => card.addEventListener('click', flipCard));
+  (function shuffle() {
+    cards.forEach((card) => {
+      let ramdomPos = Math.floor(Math.random() * 12);
+      card.style.order = ramdomPos;
+    });
+  })();
+
+  cards.forEach((card) => card.addEventListener("click", flipCard));
 }
 
 //Тяжелый уровень игры
@@ -311,185 +305,183 @@ export function renderHardCard() {
   <div class="game-area">
 
   <div class="card" data-framework="туз пики">
-     <img class="front-face" src="img/туз пики.jpg" alt="Card">
-     <img class="back-face"  src="img/рубашка.jpg" alt="Card">
-     <img class="demo-face" src="img/туз пики.jpg" alt="Card">
-  </div>
+  <img class="front-face" src="./static/img/туз пики.jpg" alt="Card">
+  <img class="back-face"  src="./static/img/рубашка.jpg" alt="Card">
+  <img class="demo-face" src="./static/img/туз пики.jpg" alt="Card">
+</div>
 
-  <div class="card"  data-framework="10 черви">
-     <img class="front-face" src="img/10 черви.jpg" alt="Card">
-     <img class="back-face"  src="img/рубашка.jpg" alt="Card">
-     <img class="demo-face" src="img/10 черви.jpg" alt="Card">
-  </div>
+<div class="card"  data-framework="10 черви">
+  <img class="front-face" src="./static/img/10 черви.jpg" alt="Card">
+  <img class="back-face"  src="./static/img/рубашка.jpg" alt="Card">
+  <img class="demo-face" src="./static/img/10 черви.jpg" alt="Card">
+</div>
 
- <div class="card"  data-framework="дама бубны">
-    <img class="front-face" src="img/дама бубны.jpg" alt="Card">
-    <img class="back-face"  src="img/рубашка.jpg" alt="Card">
-    <img class="demo-face" src="img/дама бубны.jpg" alt="Card">
- </div>
+<div class="card"  data-framework="дама бубны">
+ <img class="front-face" src="./static/img/дама бубны.jpg" alt="Card">
+ <img class="back-face"  src="./static/img/рубашка.jpg" alt="Card">
+ <img class="demo-face" src="./static/img/дама бубны.jpg" alt="Card">
+</div>
 
- <div class="card"  data-framework="туз пики">
-    <img class="front-face" src="img/туз пики.jpg" alt="Card">
-    <img class="back-face"  src="img/рубашка.jpg" alt="Card">
-    <img class="demo-face" src="img/туз пики.jpg" alt="Card">
-  </div>
+<div class="card"  data-framework="туз пики">
+ <img class="front-face" src="./static/img/туз пики.jpg" alt="Card">
+ <img class="back-face"  src="./static/img/рубашка.jpg" alt="Card">
+ <img class="demo-face" src="./static/img/туз пики.jpg" alt="Card">
+</div>
 
- <div class="card"  data-framework="дама бубны">
-     <img class="front-face" src="img/дама бубны.jpg" alt="Card">
-     <img class="back-face"  src="img/рубашка.jpg" alt="Card">
-     <img class="demo-face" src="img/дама бубны.jpg" alt="Card">
- </div>
+<div class="card"  data-framework="дама бубны">
+  <img class="front-face" src="./static/img/дама бубны.jpg" alt="Card">
+  <img class="back-face"  src="./static/img/рубашка.jpg" alt="Card">
+  <img class="demo-face" src="./static/img/дама бубны.jpg" alt="Card">
+</div>
 
- <div class="card"  data-framework="10 черви">
-    <img class="front-face" src="img/10 черви.jpg" alt="Card">
-    <img class="back-face"  src="img/рубашка.jpg" alt="Card">
-    <img class="demo-face" src="img/10 черви.jpg" alt="Card">
- </div>
+<div class="card"  data-framework="10 черви">
+ <img class="front-face" src="./static/img/10 черви.jpg" alt="Card">
+ <img class="back-face"  src="./static/img/рубашка.jpg" alt="Card">
+ <img class="demo-face" src="./static/img/10 черви.jpg" alt="Card">
+</div>
 
- <div class="card" data-framework="дама черви">
-     <img class="front-face" src="img/дама черви.jpg" alt="Card">
-     <img class="back-face"  src="img/рубашка.jpg" alt="Card">
-     <img class="demo-face" src="img/дама черви.jpg" alt="Card">
-  </div>
+<div class="card" data-framework="дама черви">
+  <img class="front-face" src="./static/img/дама черви.jpg" alt="Card">
+  <img class="back-face"  src="./static/img/рубашка.jpg" alt="Card">
+  <img class="demo-face" src="./static/img/дама черви.jpg" alt="Card">
+</div>
 
-  <div class="card"  data-framework="дама черви">
-     <img class="front-face" src="img/дама черви.jpg" alt="Card">
-     <img class="back-face"  src="img/рубашка.jpg" alt="Card">
-     <img class="demo-face" src="img/дама черви.jpg" alt="Card">
-  </div>
+<div class="card"  data-framework="дама черви">
+  <img class="front-face" src="./static/img/дама черви.jpg" alt="Card">
+  <img class="back-face"  src="./static/img/рубашка.jpg" alt="Card">
+  <img class="demo-face" src="./static/img/дама черви.jpg" alt="Card">
+</div>
 
- <div class="card"  data-framework="король крести">
-    <img class="front-face" src="img/король крести.jpg" alt="Card">
-    <img class="back-face"  src="img/рубашка.jpg" alt="Card">
-    <img class="demo-face"src="img/король крести.jpg" alt="Card">
- </div>
+<div class="card"  data-framework="король крести">
+ <img class="front-face" src="./static/img/король крести.jpg" alt="Card">
+ <img class="back-face"  src="./static/img/рубашка.jpg" alt="Card">
+ <img class="demo-face"src="./static/img/король крести.jpg" alt="Card">
+</div>
 
- <div class="card"  data-framework="король крести">
-    <img class="front-face" src="img/король крести.jpg" alt="Card">
-    <img class="back-face"  src="img/рубашка.jpg" alt="Card">
-    <img class="demo-face" src="img/король крести.jpg" alt="Card">
-  </div>
+<div class="card"  data-framework="король крести">
+ <img class="front-face" src="./static/img/король крести.jpg" alt="Card">
+ <img class="back-face"  src="./static/img/рубашка.jpg" alt="Card">
+ <img class="demo-face" src="./static/img/король крести.jpg" alt="Card">
+</div>
 
- <div class="card"  data-framework="7 крести">
-     <img class="front-face" src="img/7 крести.jpg" alt="Card">
-     <img class="back-face"  src="img/рубашка.jpg" alt="Card">
-     <img class="demo-face" src="img/7 крести.jpg" alt="Card">
- </div>
+<div class="card"  data-framework="7 крести">
+  <img class="front-face" src="./static/img/7 крести.jpg" alt="Card">
+  <img class="back-face"  src="./static/img/рубашка.jpg" alt="Card">
+  <img class="demo-face" src="./static/img/7 крести.jpg" alt="Card">
+</div>
 
- <div class="card"  data-framework="7 крести">
-    <img class="front-face" src="img/7 крести.jpg" alt="Card">
-    <img class="back-face"  src="img/рубашка.jpg" alt="Card">
-    <img class="demo-face" src="img/7 крести.jpg" alt="Card">
- </div>
+<div class="card"  data-framework="7 крести">
+ <img class="front-face" src="./static/img/7 крести.jpg" alt="Card">
+ <img class="back-face"  src="./static/img/рубашка.jpg" alt="Card">
+ <img class="demo-face" src="./static/img/7 крести.jpg" alt="Card">
+</div>
 
- <div class="card" data-framework="8 пики">
-     <img class="front-face" src="img/8 пики.jpg" alt="Card">
-     <img class="back-face"  src="img/рубашка.jpg" alt="Card">
-     <img class="demo-face" src="img/8 пики.jpg" alt="Card">
-  </div>
+<div class="card" data-framework="8 пики">
+  <img class="front-face" src="./static/img/8 пики.jpg" alt="Card">
+  <img class="back-face"  src="./static/img/рубашка.jpg" alt="Card">
+  <img class="demo-face" src="./static/img/8 пики.jpg" alt="Card">
+</div>
 
-  <div class="card"  data-framework="8 пики">
-     <img class="front-face" src="img/8 пики.jpg" alt="Card">
-     <img class="back-face"  src="img/рубашка.jpg" alt="Card">
-     <img class="demo-face" src="img/8 пики.jpg" alt="Card">
-  </div>
+<div class="card"  data-framework="8 пики">
+  <img class="front-face" src="./static/img/8 пики.jpg" alt="Card">
+  <img class="back-face"  src="./static/img/рубашка.jpg" alt="Card">
+  <img class="demo-face" src="./static/img/8 пики.jpg" alt="Card">
+</div>
 
- <div class="card"  data-framework="валет черви">
-    <img class="front-face" src="img/валет черви.jpg" alt="Card">
-    <img class="back-face"  src="img/рубашка.jpg" alt="Card">
-    <img class="demo-face" src="img/валет черви.jpg" alt="Card">
- </div>
+<div class="card"  data-framework="валет черви">
+ <img class="front-face" src="./static/img/валет черви.jpg" alt="Card">
+ <img class="back-face"  src="./static/img/рубашка.jpg" alt="Card">
+ <img class="demo-face" src="./static/img/валет черви.jpg" alt="Card">
+</div>
 
- <div class="card"  data-framework="валет черви">
-    <img class="front-face" src="img/валет черви.jpg" alt="Card">
-    <img class="back-face"  src="img/рубашка.jpg" alt="Card">
-    <img class="demo-face" src="img/валет черви.jpg" alt="Card">
-  </div>
+<div class="card"  data-framework="валет черви">
+ <img class="front-face" src="./static/img/валет черви.jpg" alt="Card">
+ <img class="back-face"  src="./static/img/рубашка.jpg" alt="Card">
+ <img class="demo-face" src="./static/img/валет черви.jpg" alt="Card">
+</div>
 
- <div class="card"  data-framework="туз бубны">
-     <img class="front-face" src="img/туз бубны.jpg" alt="Card">
-     <img class="back-face"  src="img/рубашка.jpg" alt="Card">
-     <img class="demo-face" src="img/туз бубны.jpg" alt="Card">
- </div>
+<div class="card"  data-framework="туз бубны">
+  <img class="front-face" src="./static/img/туз бубны.jpg" alt="Card">
+  <img class="back-face"  src="./static/img/рубашка.jpg" alt="Card">
+  <img class="demo-face" src="./static/img/туз бубны.jpg" alt="Card">
+</div>
 
- <div class="card"  data-framework="туз бубны">
-    <img class="front-face" src="img/туз бубны.jpg" alt="Card">
-    <img class="back-face"  src="img/рубашка.jpg" alt="Card">
-    <img class="demo-face" src="img/туз бубны.jpg" alt="Card">
- </div>
+<div class="card"  data-framework="туз бубны">
+ <img class="front-face" src="./static/img/туз бубны.jpg" alt="Card">
+ <img class="back-face"  src="./static/img/рубашка.jpg" alt="Card">
+ <img class="demo-face" src="./static/img/туз бубны.jpg" alt="Card">
+</div>
 
   </div>
   `;
   cardElement.innerHTML = cardHtml;
 
-  
-  setTimeout(function(){
-  let elems = document.querySelectorAll(".demo-face");
-for(let i=0; i<elems.length; i++)elems[i].style.display='none';
-    }, 5000 );
+  setTimeout(function () {
+    let elems = document.querySelectorAll(".demo-face");
+    for (let i = 0; i < elems.length; i++) elems[i].style.display = "none";
+  }, 5000);
 
-  const cards = document.querySelectorAll('.card');
+  const cards = document.querySelectorAll(".card");
 
-let hasFlippedCard = false;
-let lockBoard = false;
-let firstCard, secondCard;
+  let hasFlippedCard = false;
+  let lockBoard = false;
+  let firstCard, secondCard;
 
-function flipCard() {
-if (lockBoard) return;
-if (this === firstCard) return;
+  function flipCard() {
+    if (lockBoard) return;
+    if (this === firstCard) return;
 
-this.classList.add('flip');
+    this.classList.add("flip");
 
-if (!hasFlippedCard) {
-  hasFlippedCard = true;
-  firstCard = this;
-  return;
-}
+    if (!hasFlippedCard) {
+      hasFlippedCard = true;
+      firstCard = this;
+      return;
+    }
 
-secondCard = this;
-lockBoard = true;
+    secondCard = this;
+    lockBoard = true;
 
-checkForMatch();
-}
-
-function checkForMatch() {
-  if (firstCard.dataset.framework === secondCard.dataset.framework) {
-    disableCards();
-    console.log('Карты совпали!')
-    return;
-    
+    checkForMatch();
   }
 
-  unflipCards();
-}
+  function checkForMatch() {
+    if (firstCard.dataset.framework === secondCard.dataset.framework) {
+      disableCards();
+      console.log("Карты совпали!");
+      return;
+    }
 
-function disableCards() {
-firstCard.removeEventListener('click', flipCard);
-secondCard.removeEventListener('click', flipCard);
+    unflipCards();
+  }
 
-resetBoard();
-}
+  function disableCards() {
+    firstCard.removeEventListener("click", flipCard);
+    secondCard.removeEventListener("click", flipCard);
 
-function unflipCards() {
-setTimeout(() => {
-  firstCard.classList.remove('flip');
-  secondCard.classList.remove('flip');
-  console.log('Нет совпадения!')
-  resetBoard();
-}, 1500);
-}
+    resetBoard();
+  }
 
-function resetBoard() {
-[hasFlippedCard, lockBoard] = [false, false];
-[firstCard, secondCard] = [null, null];
-}
+  function unflipCards() {
+    setTimeout(() => {
+      firstCard.classList.remove("flip");
+      secondCard.classList.remove("flip");
+      console.log("Нет совпадения!");
+      resetBoard();
+    }, 1500);
+  }
 
-(function shuffle() {
-cards.forEach(card => {
-  let ramdomPos = Math.floor(Math.random() * 18);
-  card.style.order = ramdomPos;
-});
-})();
+  function resetBoard() {
+    [hasFlippedCard, lockBoard] = [false, false];
+    [firstCard, secondCard] = [null, null];
+  }
 
-cards.forEach(card => card.addEventListener('click', flipCard));
+  (function shuffle() {
+    cards.forEach((card) => {
+      let ramdomPos = Math.floor(Math.random() * 18);
+      card.style.order = ramdomPos;
+    });
+  })();
+
+  cards.forEach((card) => card.addEventListener("click", flipCard));
 }
