@@ -1,3 +1,6 @@
+import { resultWin } from "./result-game";
+
+
 // Легкий уровень игры
 export function renderEasyCard() {
   const cardElement = document.getElementById("area");
@@ -86,7 +89,7 @@ export function renderEasyCard() {
   function checkForMatch() {
     if (firstCard.dataset.framework === secondCard.dataset.framework) {
       disableCards();
-      console.log("Карты совпали!");
+       console.log("Карты совпали!");
       return;
     }
 
@@ -96,7 +99,6 @@ export function renderEasyCard() {
   function disableCards() {
     firstCard.removeEventListener("click", flipCard);
     secondCard.removeEventListener("click", flipCard);
-
     resetBoard();
   }
 
@@ -122,6 +124,8 @@ export function renderEasyCard() {
   })();
 
   cards.forEach((card) => card.addEventListener("click", flipCard));
+  
+ 
 }
 
 //Средний уровень игры

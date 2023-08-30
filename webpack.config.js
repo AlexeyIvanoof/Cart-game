@@ -2,11 +2,12 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
-
 const mode = process.env.NODE_ENV === "production" ? "production" : "development";
+const CopyPlugin = require("copy-webpack-plugin");
+
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: "/index.js",
   mode,
   module: {
     rules: [
@@ -24,6 +25,19 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+        template: "./index.html",
+    }),
+    new MiniCssExtractPlugin({
+        filename: './style.css',
+    }),
+    new CopyPlugin({
+      patterns: [
+        { from: "./static", to: "static" },
+      ],
+    }),
+],
   optimization: {
     minimizer: [
       '...',
@@ -36,5 +50,5 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
   },
-  plugins: [new MiniCssExtractPlugin(), new HtmlWebpackPlugin()],
+
 };
