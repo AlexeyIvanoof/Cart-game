@@ -2,10 +2,32 @@ import { renderEasyCard } from "./levels";
 import { renderMediumCard } from "./levels";
 import { renderHardCard } from "./levels";
 import "./style.css"
-  
 
-function difficultPage() {
-  const pageElement = document.getElementById("app");
+
+type Game = {
+  time: string;
+  maxTimeInSeconds: number;
+};
+
+/* TODO */
+export const game: Game = {
+  time: "00:00",
+  maxTimeInSeconds: 0,
+};
+
+/* TODO */
+export function setGameTime(newTime: string): void {
+  game.time = newTime;
+}
+/* TODO */
+export function setMaxTime(maxTime: number): void {
+  game.maxTimeInSeconds = maxTime;
+}
+
+
+
+export function difficultPage() {
+  const pageElement = document.getElementById("app") as HTMLElement;
   const pageDifficultHtml = ` <div id = "game-cart" class="game-cart">
     <div class="game-menu center" >
        <h2 class="game-set">Выбери<br>сложность</h2>
@@ -21,8 +43,8 @@ function difficultPage() {
    </div>`;
   pageElement.innerHTML = pageDifficultHtml;
 
-  const form = document.querySelector("form");
-  const pageDifficult = document.getElementById("game-cart");
+  const form = document.querySelector("form") as HTMLElement;
+  const pageDifficult = document.getElementById("game-cart") as HTMLElement;
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -30,7 +52,7 @@ function difficultPage() {
 
     const levelDifficult = document.querySelector(
       'input[name = "level"]:checked',
-    );
+    ) as HTMLInputElement;
 
     if (levelDifficult) {
       const difficulty = levelDifficult.value;
