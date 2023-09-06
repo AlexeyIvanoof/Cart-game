@@ -1,3 +1,6 @@
+/*!*************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./style.css ***!
+  \*************************************************************/
 @charset "UTF-8";
 * {
   margin: 0;
@@ -6,7 +9,7 @@
 
 @font-face {
     font-family: "StratosSkyeng";
-    src:url(stratosskyeng-regular.otf)
+    src:url(8765b4fa6f0337532589.otf)
   }
 
 .center {
@@ -136,6 +139,12 @@ background: var(--blue-120, #004980);
     width: 975px;
     margin-top: 22px;
     margin-left: 25px;
+}
+
+.game-timer{
+    width: 155px;
+    height: 91px;
+    margin-top: 22px;
 }
 
 .timer{
@@ -287,14 +296,6 @@ display: flex;
     justify-content: center;
 }
 
-.text-timer{
-  display: flex;
-  align-items: center;
-  color: #FFF;
-text-align: center;
-font-variant-numeric: lining-nums proportional-nums;
-font-family: StratosSkyeng;
-font-size: 24px;
-font-style: normal;
-font-weight: 400;
-}
+
+
+/*# sourceMappingURL=style.css.map*/

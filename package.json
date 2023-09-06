@@ -1,10 +1,24 @@
 {
   "devDependencies": {
+    "copy-webpack-plugin": "^11.0.0",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.8.1",
+    "css-minimizer-webpack-plugin": "^5.0.1",
     "eslint": "^8.47.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "html-webpack-plugin": "^5.5.3",
+    "mini-css-extract-plugin": "^2.7.6",
     "prettier": "^3.0.2",
-    "stylelint": "^15.10.3"
+    "style-loader": "^3.3.3",
+    "stylelint": "^15.10.3",
+    "ts-loader": "^9.4.4",
+    "typescript": "^5.2.2",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
   },
-  "name": "cart-game",
+  "name": "src",
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {
@@ -26,8 +40,6 @@
     "deep-is": "^0.1.4",
     "doctrine": "^3.0.0",
     "escape-string-regexp": "^4.0.0",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-prettier": "^5.0.0",
     "eslint-scope": "^7.2.2",
     "eslint-visitor-keys": "^3.4.3",
     "espree": "^9.6.1",
@@ -49,6 +61,7 @@
     "globals": "^13.21.0",
     "graphemer": "^1.4.0",
     "has-flag": "^4.0.0",
+    "http-server": "^14.1.1",
     "ignore": "^5.2.4",
     "import-fresh": "^3.3.0",
     "imurmurhash": "^0.1.4",
@@ -63,6 +76,7 @@
     "json-stable-stringify-without-jsonify": "^1.0.1",
     "levn": "^0.4.1",
     "locate-path": "^6.0.0",
+    "lodash": "^4.17.21",
     "lodash.merge": "^4.6.2",
     "minimatch": "^3.1.2",
     "ms": "^2.1.2",
@@ -97,10 +111,12 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint:js": "eslint  'F:/scypro repository/Cart-game/**/*.js'",
-    "format": "prettier —write .",
-    "lint:css": "stylelint 'F:/scypro repository/Cart-game/**/*.js'"
-    
+    "lint:js": "eslint  './index.js'",
+    "format": "prettier --write ./src/",
+    "lint:css": "stylelint './style.css'",
+    "build": "cross-env NODE_ENV=production webpack",
+    "start": "webpack-dev-server --open",
+    "lint:ts": "tsc --noEmit "
   },
   "author": "",
   "license": "ISC",
