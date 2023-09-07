@@ -15,7 +15,7 @@ import { getSecondsDifference } from "./timer";
 
   const winHtml = `<div id="win" class="box-result" center>
     <div class="game-positiveResult" center>
-        <img class="win" src="static/img/celebration.jpg" alt="">
+        <img class="win" src="static/img/celebration.png" alt="">
         <h3 class="win-text">Вы выиграли!</h3>
         <p class="elapsed-time-text">Затраченное время:</p>
         <p id="timer" class="elapsed-time">${differenceInSeconds} сек</p>
@@ -50,7 +50,7 @@ export function resultLose() {
 
   const winHtml = `<div id="lose" class="box-result" center>
     <div class="game-positiveResult" center>
-        <img class="win" src="static/img/dead.jpg" alt="">
+        <img class="win" src="static/img/Image.png" alt="">
         <h3 class="win-text">Вы проиграли!</h3>
         <p class="elapsed-time-text">Затраченное время:</p>
         <p class="elapsed-time">${differenceInSeconds} сек</p>
