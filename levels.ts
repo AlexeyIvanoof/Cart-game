@@ -61,8 +61,8 @@ export function renderEasyCard() {
   cardElement.innerHTML = cardHtml;
 
   setTimeout(function () {
-    let rule =  document.getElementById("text-timer") as HTMLElement;
-    let elems = document.querySelectorAll(
+    const rule =  document.getElementById("text-timer") as HTMLElement;
+    const elems = document.querySelectorAll(
       ".demo-face",
     ) as NodeListOf<HTMLImageElement>;
     for (let i = 0; i < elems.length; i++) elems[i].style.display = "none";
@@ -88,6 +88,7 @@ export function renderEasyCard() {
 
     if (!hasFlippedCard) {
       hasFlippedCard = true;
+      // eslint-disable-next-line @typescript-eslint/no-this-alias
       firstCard = this;
       return;
     }
@@ -95,12 +96,13 @@ export function renderEasyCard() {
     //вы выйграли!
     const element = document.querySelectorAll(".card.flip");
     element.length;
-    let arr = element.length;
+    const arr = element.length;
     if (arr === 6) {
       resultWin();
       cardElement.style.display = "none";
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-this-alias
     secondCard = this;
     lockBoard = true;
 
@@ -139,7 +141,7 @@ export function renderEasyCard() {
 
   (function shuffle() {
     cards.forEach((card: HTMLElement) => {
-      let ramdomPos = Math.floor(Math.random() * 6);
+      const ramdomPos = Math.floor(Math.random() * 6);
       /* TODO */
       // card.style.order = ramdomPos.toString();
       card.style.order = String(ramdomPos);
@@ -255,8 +257,8 @@ export function renderMediumCard() {
   cardElement.innerHTML = cardHtml;
 
   setTimeout(function () {
-    let rule =  document.getElementById("text-timer") as HTMLElement;
-    let elems = document.querySelectorAll(
+    const rule =  document.getElementById("text-timer") as HTMLElement;
+    const elems = document.querySelectorAll(
       ".demo-face",
     ) as NodeListOf<HTMLImageElement>;
     for (let i = 0; i < elems.length; i++) elems[i].style.display = "none";
@@ -279,6 +281,7 @@ export function renderMediumCard() {
 
     if (!hasFlippedCard) {
       hasFlippedCard = true;
+      // eslint-disable-next-line @typescript-eslint/no-this-alias
       firstCard = this;
       return;
     }
@@ -286,12 +289,13 @@ export function renderMediumCard() {
      //вы выйграли! 
   const element = document.querySelectorAll(".card.flip")
     element.length;
-  let arr =  element.length;
+  const arr =  element.length;
   if(arr === 12){
    resultWin();
    cardElement.style.display = "none";
   }
 
+    // eslint-disable-next-line @typescript-eslint/no-this-alias
     secondCard = this;
     lockBoard = true;
 
@@ -331,14 +335,14 @@ export function renderMediumCard() {
 
   (function shuffle() {
     cards.forEach((card) => {
-      let ramdomPos = Math.floor(Math.random() * 12);
+      const ramdomPos = Math.floor(Math.random() * 12);
       card.style.order = String(ramdomPos);
     });
   })();
 
   cards.forEach((card) => card.addEventListener("click", flipCard));
 
-  const buttonGame = document.getElementById("game-button") as HTMLButtonElement;;
+  const buttonGame = document.getElementById("game-button") as HTMLButtonElement;
   buttonGame.addEventListener("click", () => {
     renderMediumCard();
   });
@@ -478,8 +482,8 @@ export function renderHardCard() {
   cardElement.innerHTML = cardHtml;
 
  setTimeout(function () {
-    let rule =  document.getElementById("text-timer") as HTMLElement;
-    let elems = document.querySelectorAll(
+    const rule =  document.getElementById("text-timer") as HTMLElement;
+    const elems = document.querySelectorAll(
       ".demo-face",
     ) as NodeListOf<HTMLImageElement>;
     for (let i = 0; i < elems.length; i++) elems[i].style.display = "none";
@@ -502,6 +506,7 @@ export function renderHardCard() {
 
     if (!hasFlippedCard) {
       hasFlippedCard = true;
+      // eslint-disable-next-line @typescript-eslint/no-this-alias
       firstCard = this;
       return;
     }
@@ -509,12 +514,13 @@ export function renderHardCard() {
      //вы выйграли! 
   const element = document.querySelectorAll(".card.flip")
     element.length;
-  let arr =  element.length;
+  const arr =  element.length;
   if(arr === 18){
    resultWin();
    cardElement.style.display = "none";
   }
 
+    // eslint-disable-next-line @typescript-eslint/no-this-alias
     secondCard = this;
     lockBoard = true;
 
@@ -554,14 +560,14 @@ export function renderHardCard() {
 
   (function shuffle() {
     cards.forEach((card) => {
-      let ramdomPos = Math.floor(Math.random() * 18);
+      const ramdomPos = Math.floor(Math.random() * 18);
       card.style.order = String(ramdomPos);
     });
   })();
 
   cards.forEach((card) => card.addEventListener("click", flipCard));
 
-  const buttonGame = document.getElementById("game-button") as HTMLButtonElement;;
+  const buttonGame = document.getElementById("game-button") as HTMLButtonElement;
   buttonGame.addEventListener("click", () => {
     renderHardCard();
   });

@@ -130,6 +130,7 @@ function renderEasyCard() {
         this.classList.add("flip");
         if (!hasFlippedCard) {
             hasFlippedCard = true;
+            // eslint-disable-next-line @typescript-eslint/no-this-alias
             firstCard = this;
             return;
         }
@@ -141,6 +142,7 @@ function renderEasyCard() {
             (0,_result_game__WEBPACK_IMPORTED_MODULE_0__.resultWin)();
             cardElement.style.display = "none";
         }
+        // eslint-disable-next-line @typescript-eslint/no-this-alias
         secondCard = this;
         lockBoard = true;
         checkForMatch();
@@ -211,6 +213,7 @@ function renderMediumCard() {
         this.classList.add("flip");
         if (!hasFlippedCard) {
             hasFlippedCard = true;
+            // eslint-disable-next-line @typescript-eslint/no-this-alias
             firstCard = this;
             return;
         }
@@ -222,6 +225,7 @@ function renderMediumCard() {
             (0,_result_game__WEBPACK_IMPORTED_MODULE_0__.resultWin)();
             cardElement.style.display = "none";
         }
+        // eslint-disable-next-line @typescript-eslint/no-this-alias
         secondCard = this;
         lockBoard = true;
         checkForMatch();
@@ -259,7 +263,6 @@ function renderMediumCard() {
     })();
     cards.forEach(function (card) { return card.addEventListener("click", flipCard); });
     var buttonGame = document.getElementById("game-button");
-    ;
     buttonGame.addEventListener("click", function () {
         renderMediumCard();
     });
@@ -290,6 +293,7 @@ function renderHardCard() {
         this.classList.add("flip");
         if (!hasFlippedCard) {
             hasFlippedCard = true;
+            // eslint-disable-next-line @typescript-eslint/no-this-alias
             firstCard = this;
             return;
         }
@@ -301,6 +305,7 @@ function renderHardCard() {
             (0,_result_game__WEBPACK_IMPORTED_MODULE_0__.resultWin)();
             cardElement.style.display = "none";
         }
+        // eslint-disable-next-line @typescript-eslint/no-this-alias
         secondCard = this;
         lockBoard = true;
         checkForMatch();
@@ -338,7 +343,6 @@ function renderHardCard() {
     })();
     cards.forEach(function (card) { return card.addEventListener("click", flipCard); });
     var buttonGame = document.getElementById("game-button");
-    ;
     buttonGame.addEventListener("click", function () {
         renderHardCard();
     });
@@ -382,7 +386,7 @@ function resultLose() {
     //2   const resultElement: HTMLElement | null = document.getElementById("area") as HTMLElement;
     // но тогда нужно проверить переменную на null
     var differenceInSeconds = (0,_timer__WEBPACK_IMPORTED_MODULE_1__.getSecondsDifference)(___WEBPACK_IMPORTED_MODULE_0__.game.maxTimeInSeconds, ___WEBPACK_IMPORTED_MODULE_0__.game.time);
-    var winHtml = "<div id=\"lose\" class=\"box-result\" center>\n    <div class=\"game-positiveResult\" center>\n        <img class=\"win\" src=\"static/img/image.png\" alt=\"\">\n        <h3 class=\"win-text\">\u0412\u044B \u043F\u0440\u043E\u0438\u0433\u0440\u0430\u043B\u0438!</h3>\n        <p class=\"elapsed-time-text\">\u0417\u0430\u0442\u0440\u0430\u0447\u0435\u043D\u043D\u043E\u0435 \u0432\u0440\u0435\u043C\u044F:</p>\n        <p class=\"elapsed-time\">".concat(differenceInSeconds, " \u0441\u0435\u043A</p>\n        <button id=\"game-button\" class=\"game-button\">\u0418\u0433\u0440\u0430\u0442\u044C \u0441\u043D\u043E\u0432\u0430</button>\n    </div>\n</div> ");
+    var winHtml = "<div id=\"lose\" class=\"box-result\" center>\n    <div class=\"game-positiveResult\" center>\n        <img class=\"win\" src=\"static/img/Image.png\" alt=\"\">\n        <h3 class=\"win-text\">\u0412\u044B \u043F\u0440\u043E\u0438\u0433\u0440\u0430\u043B\u0438!</h3>\n        <p class=\"elapsed-time-text\">\u0417\u0430\u0442\u0440\u0430\u0447\u0435\u043D\u043D\u043E\u0435 \u0432\u0440\u0435\u043C\u044F:</p>\n        <p class=\"elapsed-time\">".concat(differenceInSeconds, " \u0441\u0435\u043A</p>\n        <button id=\"game-button\" class=\"game-button\">\u0418\u0433\u0440\u0430\u0442\u044C \u0441\u043D\u043E\u0432\u0430</button>\n    </div>\n</div> ");
     resultElement.innerHTML = winHtml;
     var pageLose = document.getElementById("lose");
     var buttonGame = document.getElementById("game-button");
