@@ -23,7 +23,7 @@ export function getSecondsDifference(
 export function timeGame(time: number) {
   setMaxTime(time);
   const timerDownEl = document.getElementById("timer") as HTMLElement;
-  let timer = setInterval(function () {
+  const timer = setInterval(function () {
     const minutes = Math.floor(time / 60);
     
     let seconds: string | number = time % 60;

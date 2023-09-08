@@ -118,7 +118,7 @@
     "lint:css": "stylelint './style.css'",
     "build": "cross-env NODE_ENV=production webpack",
     "start": "webpack-dev-server --open",
-    "lint:ts": "tsc --noEmit "
+    "lint:ts": "npx eslint"
   },
   "author": "",
   "license": "ISC",

@@ -251,7 +251,6 @@ export function renderMediumCard() {
       <img class="back-face"  src="./static/img/рубашка.jpg" alt="Card">
       <img class="demo-face" src="./static/img/7 крести.jpg" alt="Card">
    </div>
-   
     </div>
     `;
   cardElement.innerHTML = cardHtml;
