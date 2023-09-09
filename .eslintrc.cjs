@@ -1,8 +1,8 @@
 /* eslint-env node */
 module.exports = {
-    extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
+    extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended',"eslint:recommended", "prettier"],
     parser: '@typescript-eslint/parser',
-    plugins: ['@typescript-eslint'],
+    plugins: ['@typescript-eslint',"prettier"],
     root: true,
 
     "editor.codeActionsOnSave": {
@@ -14,10 +14,7 @@ module.exports = {
           "es6": true,
           "node": true
         },
-        "extends": ["eslint:recommended", "prettier"],
-        "plugins": [
-          "prettier"
-        ],
+       
         "parserOptions": {
           "ecmaVersion": 2020
         },
