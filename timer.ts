@@ -1,6 +1,6 @@
+/* eslint-disable prettier/prettier */
 import { resultLose } from "./result-game";
 import { setGameTime, setMaxTime } from "./index";
-
 
 export function getSecondsDifference(
   firstTime: number,
@@ -18,14 +18,12 @@ export function getSecondsDifference(
   return differenceInSeconds;
 }
 
-
-
 export function timeGame(time: number) {
   setMaxTime(time);
   const timerDownEl = document.getElementById("timer") as HTMLElement;
   const timer = setInterval(function () {
     const minutes = Math.floor(time / 60);
-    
+
     let seconds: string | number = time % 60;
     seconds = seconds < 10 ? "0" + seconds : seconds;
 
@@ -38,7 +36,3 @@ export function timeGame(time: number) {
     }
   }, 1000);
 }
-
-
-
-

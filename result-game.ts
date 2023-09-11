@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { difficultPage } from ".";
 import { game } from "./index";
 import { getSecondsDifference } from "./timer";

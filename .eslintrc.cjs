@@ -5,9 +5,9 @@ module.exports = {
     plugins: ['@typescript-eslint',"prettier"],
     root: true,
 
-    "editor.codeActionsOnSave": {
+    /*/"editor.codeActionsOnSave": {
       "source.fixAll": true
-    },
+    },/*/
   
       "env": {
           "browser": true,

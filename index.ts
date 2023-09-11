@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { renderEasyCard } from "./levels";
 import { renderMediumCard } from "./levels";
 import { renderHardCard } from "./levels";

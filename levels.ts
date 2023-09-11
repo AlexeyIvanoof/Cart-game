@@ -1,3 +1,7 @@
+/* eslint-disable prettier/prettier */
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
+/* eslint-disable prettier/prettier */
 import { resultWin } from "./result-game";
 import {timeGame} from "./timer";
 
