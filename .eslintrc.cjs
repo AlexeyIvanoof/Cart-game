@@ -4,10 +4,6 @@ module.exports = {
     parser: '@typescript-eslint/parser',
     plugins: ['@typescript-eslint',"prettier"],
     root: true,
-
-    /*/"editor.codeActionsOnSave": {
-      "source.fixAll": true
-    },/*/
   
       "env": {
           "browser": true,
