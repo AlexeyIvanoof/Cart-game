@@ -4,7 +4,7 @@
 /* eslint-disable prettier/prettier */
 import { resultWin } from "./result-game";
 import {timeGame} from "./timer";
-
+import { isSimilarCards } from "./cardFilter";
 
 // Легкий уровень игры
 export function renderEasyCard() {
@@ -110,18 +110,17 @@ export function renderEasyCard() {
     secondCard = this;
     lockBoard = true;
 
-    checkForMatch();
+    checkForMatch(firstCard.dataset.framework, secondCard.dataset.framework);
   }
 
-  function checkForMatch() {
-    if (firstCard.dataset.framework === secondCard.dataset.framework) {
-      disableCards();
-      console.log("Карты совпали!");
-      return;
-    }
-
-    unflipCards();
+function checkForMatch(firstCard: string | undefined, secondCard: string | undefined) {
+  if (isSimilarCards(firstCard,secondCard)) {
+    disableCards();
+    console.log("Карты совпали!");
+    return;
   }
+  unflipCards()
+}
 
   function disableCards() {
     firstCard.removeEventListener("click", flipCard);
