@@ -1,3 +1,6 @@
+/*!*************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./style.css ***!
+  \*************************************************************/
 @charset "UTF-8";
 * {
   margin: 0;
@@ -6,7 +9,7 @@
 
 @font-face {
     font-family: "StratosSkyeng";
-    src:url(stratosskyeng-regular.otf)
+    src:url(8765b4fa6f0337532589.otf)
   }
 
 .center {
@@ -298,3 +301,6 @@ font-size: 24px;
 font-style: normal;
 font-weight: 400;
 }
+
+
+/*# sourceMappingURL=style.css.map*/
